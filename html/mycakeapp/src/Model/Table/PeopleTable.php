@@ -12,10 +12,8 @@ class PeopleTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-
-        $this->setTable('people');
-        $this->setDisplayField('mail');
-        $this->setPrimaryKey('id');
+        $this->setDisplayField('name');
+        $this->hasMany('Messages');
     }
 
     public function findMe(Query $query, array $options)
@@ -34,22 +32,24 @@ class PeopleTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
+            ->integer('id', 'idは整数で入力してください。')
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('name')
+            ->scalar('name', 'テキストを入力してください。')
             ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->notEmpty('name', '名前は必ず入力してください。');
 
         $validator
-            ->scalar('mail')
-            ->allowEmpty('mail');
+            ->scalar('mail', 'テキストを入力してください。')
+            ->allowEmpty('mail')
+            ->email('mail', false, 'メールアドレスを入力してください。');
 
         $validator
-            ->integer('age')
+            ->integer('age', '整数を入力してください。')
             ->requirePresence('age', 'create')
-            ->notEmpty('age');
+            ->notEmpty('age', '必ず値を入力してください。')
+            ->greaterThan('age', -1, 'ゼロ以上の値を記入してください。');
 
         return $validator;
     }
