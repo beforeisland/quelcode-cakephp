@@ -7,6 +7,20 @@ use App\Controller\AppController;
 class PeopleController extends AppController
 {
 
+
+    public $paginate = [
+        'finder'=> 'byAge',
+        'limit' => 5,
+        'contain' => ['Messages']
+    ];
+
+    public function initialize() {
+        parent::initialize();
+        $this->loadComponent('Paginator');
+    }
+
+
+
     public function index()
     {
         if ($this->request->isPost()) {
@@ -17,6 +31,8 @@ class PeopleController extends AppController
             $data = $this->People->find('byAge')
                 ->contain(['Messages']);
         }
+
+        $data = $this->paginate($this->People);
         $this->set('data', $data);
     }
 
