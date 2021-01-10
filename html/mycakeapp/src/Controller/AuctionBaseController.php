@@ -3,8 +3,9 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+
 use Cake\Auth\DefaultPasswordHasher; // added.
-use Cale\Event\Event; // added.
+use Cake\Event\Event; // added.
 
 class AuctionBaseController extends AppController
 {
@@ -32,9 +33,9 @@ class AuctionBaseController extends AppController
             ],
             'logoutRedirect' => [
                 'controller' => 'Users',
-                'action' => 'logout'
+                'action' => 'logout',
             ],
-            'authError' => 'ログインしてください。'
+            'authError' => 'ログインしてください。',
         ]);
     }
 
@@ -61,7 +62,7 @@ class AuctionBaseController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    //認証をしないページの設定
+    // 認証をしないページの設定
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
