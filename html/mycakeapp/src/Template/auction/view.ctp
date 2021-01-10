@@ -1,4 +1,4 @@
-<h2>「<?= $biditem->name ?>の情報</h2>
+<h2>「<?= $biditem->name ?> 」の情報</h2>
 <table class="vertical-table">
     <tr>
         <th class="small" scope="row">出品者</th>
@@ -21,7 +21,7 @@
         <td><?= h($biditem->created) ?></td>
     </tr>
     <tr>
-        <th scope="row"><?= __('終了した?') ?></th>
+        <th scope="row"><?= __('終了した？') ?></th>
         <td><?= $biditem->finished ? __('Yes') : __('No'); ?></td>
     </tr>
 </table>
@@ -68,9 +68,9 @@
                 </tbody>
             </table>
         <?php else : ?>
-            <p><?= '※入札者は、まだありません。' ?></p>
+            <p><?= '※入札は、まだありません。' ?></p>
         <?php endif; ?>
     <?php else : ?>
-        <p><?= '※入札は終了しました。' ?></p>
+        <p><?= '※入札は、終了しました。' ?></p>
     <?php endif; ?>
 </div>

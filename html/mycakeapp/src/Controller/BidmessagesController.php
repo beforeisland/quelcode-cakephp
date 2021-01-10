@@ -20,7 +20,7 @@ class BidmessagesController extends AuctionBaseController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Bidinfos', 'Users'],
+            'contain' => ['Bidinfo', 'Users'],
         ];
         $bidmessages = $this->paginate($this->Bidmessages);
 
@@ -37,7 +37,7 @@ class BidmessagesController extends AuctionBaseController
     public function view($id = null)
     {
         $bidmessage = $this->Bidmessages->get($id, [
-            'contain' => ['Bidinfos', 'Users'],
+            'contain' => ['Bidinfo', 'Users'],
         ]);
 
         $this->set('bidmessage', $bidmessage);
@@ -60,9 +60,9 @@ class BidmessagesController extends AuctionBaseController
             }
             $this->Flash->error(__('The bidmessage could not be saved. Please, try again.'));
         }
-        $bidinfos = $this->Bidmessages->Bidinfos->find('list', ['limit' => 200]);
+        $bidinfo = $this->Bidmessages->Bidinfo->find('list', ['limit' => 200]);
         $users = $this->Bidmessages->Users->find('list', ['limit' => 200]);
-        $this->set(compact('bidmessage', 'bidinfos', 'users'));
+        $this->set(compact('bidmessage', 'bidinfo', 'users'));
     }
 
     /**
@@ -86,9 +86,9 @@ class BidmessagesController extends AuctionBaseController
             }
             $this->Flash->error(__('The bidmessage could not be saved. Please, try again.'));
         }
-        $bidinfos = $this->Bidmessages->Bidinfos->find('list', ['limit' => 200]);
+        $bidinfo = $this->Bidmessages->Bidinfo->find('list', ['limit' => 200]);
         $users = $this->Bidmessages->Users->find('list', ['limit' => 200]);
-        $this->set(compact('bidmessage', 'bidinfos', 'users'));
+        $this->set(compact('bidmessage', 'bidinfo', 'users'));
     }
 
     /**

@@ -76,7 +76,7 @@ class AuctionController extends AuctionBaseController
         }
         // Bidrequestsからbiditem_idが$idのものを取得
         $bidrequests = $this->Bidrequests->find('all', [
-            'conditions' => ['biditem_id' => '$id'],
+            'conditions' => ['biditem_id' => $id],
             'contain' => ['Users'],
             'order' => ['price' => 'desc']
         ])->toArray();
