@@ -7,12 +7,13 @@ use Cake\I18n\Time;
 
 class MessagesController extends AppController
 {
+
     public function index()
     {
         if ($this->request->is('post')) {
-            $data = $this->request->data['Messages'];
+            $data =  $this->request->data['Messages'];
             $entity = $this->Messages->newEntity($data);
-            $entity->created_at = new Time(data('Y-m-d H:i:s'));
+            $entity->created_at = new Time(date('Y-m-d H:i:s'));
             $this->Messages->save($entity);
         } else {
             $entity = $this->Messages->newEntity();
