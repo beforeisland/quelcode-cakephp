@@ -18,7 +18,7 @@
 </tr>
 <tr>
 	<th scope="row">商品画像</th>
-	<td><?= $this->Html->image($biditem->image,array('height'=>800,'width'=>800)) ?></td>
+	<td><?= $this->Html->image('item/' . $biditem->image, ['height'=>800,'width'=>800]) ?></td>
 </tr>
 <tr>
 	<th scope="row">終了時間</th>
