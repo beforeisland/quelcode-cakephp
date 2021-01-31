@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class AddDiscriptionToBiditems extends AbstractMigration
+class AddImageToBiditems extends AbstractMigration
 {
     /**
      * Change Method.
@@ -13,9 +13,9 @@ class AddDiscriptionToBiditems extends AbstractMigration
     public function change()
     {
         $table = $this->table('biditems');
-        $table->addColumn('description', 'string', [
+        $table->addColumn('image', 'string', [
             'default' => null,
-            'limit' => 1000,
+            'limit' => 255,
             'null' => false,
         ]);
         $table->update();
