@@ -13,7 +13,7 @@ class AddDiscriptionToBiditems extends AbstractMigration
     public function change()
     {
         $table = $this->table('biditems');
-        $table->addColumn('discription', 'string', [
+        $table->addColumn('description', 'string', [
             'default' => null,
             'limit' => 1000,
             'null' => false,

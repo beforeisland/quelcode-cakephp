@@ -84,10 +84,10 @@ class BiditemsTable extends Table
             ->notEmptyDateTime('endtime');
 
         $validator
-            ->scalar('discription')
-            ->maxLength('discription', 1000)
-            ->requirePresence('discription', 'create')
-            ->notEmptyString('discription')
+            ->scalar('description')
+            ->maxLength('description', 1000)
+            ->requirePresence('description', 'create')
+            ->notEmptyString('description');
 
         return $validator;
     }
