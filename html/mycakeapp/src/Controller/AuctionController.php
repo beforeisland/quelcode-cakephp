@@ -95,7 +95,7 @@ class AuctionController extends AuctionBaseController
 			//画像のデータサイズを取得
 			$fileSize = $file['size'];
 
-			if ($fileSize <= 1000000) {
+			if ($fileSize <= 1048576) {
 
 				//$dataに格納
 				$data = [
